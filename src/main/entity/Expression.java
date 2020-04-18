@@ -19,7 +19,7 @@ public class Expression {
 
     /**
      * 调用后续遍历方法将二叉树的节点存进List
-     * @param nodeList
+     * @param nodeList 存放后续遍历后的List
      */
     public void postOrderTraversal(List<Node> nodeList){
         postOrderTraversal(this.root, nodeList);
@@ -30,11 +30,27 @@ public class Expression {
      * @param node
      * @param nodeList
      */
-    public void postOrderTraversal(Node node, List<Node> nodeList){
+    private void postOrderTraversal(Node node, List<Node> nodeList){
         if (node!=null){
             postOrderTraversal(node.getLeftChild(), nodeList);
             postOrderTraversal(node.getRightChild(), nodeList);
             nodeList.add(node);
         }
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+
+    public StringBuilder getResult() {
+        return result;
+    }
+
+    public void setResult(StringBuilder result) {
+        this.result = result;
     }
 }
